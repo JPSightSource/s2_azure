@@ -21,7 +21,7 @@ defmodule S2Azure.Mixfile do
 
   defp deps do
     [
-      {:erlazure, github: "gullitmiranda/erlazure", manager: :rebar},
+      {:erlazure, git: "https://github.com/JPSightSource/s2_erlazure.git", manager: :rebar},
       {:ex_doc  , "~> 0.11.5", only: [:dev, :test]},
       {:earmark , "~> 0.2.1" , only: [:dev, :test]},
     ]
@@ -30,11 +30,11 @@ defmodule S2Azure.Mixfile do
   defp package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
-      maintainers: ["Gullit Miranda <gullitmiranda@gmail.com>"],
+      maintainers: ["James Parker <jp@sightsource.net>"],
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/gullitmiranda/s2_azure",
-        "Docs"   => "https://hexdocs.pm/s2_azure",
+        "GitHub" => "https://github.com/JPSightSource/s2_azure",
+
       }
     ]
   end
