@@ -60,7 +60,7 @@ defmodule S2Azure do
     # Define workers and child supervisors to be supervised
     children = [
       # supervisor(:erlazure_sup, []),
-      {supervS2Azure.Server, []},
+      {S2Azure.Server, []},
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
