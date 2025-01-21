@@ -55,12 +55,12 @@ defmodule S2Azure do
 
   @doc false
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
+    # import Supervisor.Spec, warn: false
 
     # Define workers and child supervisors to be supervised
     children = [
       # supervisor(:erlazure_sup, []),
-      supervisor(S2Azure.Server, []),
+      {supervS2Azure.Server, []},
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
