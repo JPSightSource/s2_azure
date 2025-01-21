@@ -1,10 +1,10 @@
-defmodule ExAzureTest do
+defmodule S2AzureTest do
   use ExUnit.Case
 
-  @module ExAzure
+  @module S2Azure
 
   test "ensure that all services way started" do
-    assert :ok == Application.ensure_started(:ex_azure)
+    assert :ok == Application.ensure_started(:s2_azure)
     assert :ok == Application.ensure_started(:erlazure)
   end
 

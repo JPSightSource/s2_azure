@@ -1,37 +1,37 @@
-# ExAzure
+# S2Azure
 
 Azure wrapper for Elixir using [:erlazure](https://github.com/gullitmiranda/erlazure).
 
 ## Installation
 
-1. Add [`:ex_azure`](https://hex.pm/packages/ex_azure) to your list of dependencies in `mix.exs`:
+1. Add [`:s2_azure`](https://hex.pm/packages/s2_azure) to your list of dependencies in `mix.exs`:
 
   ```elixir
   def deps do
-    [{:ex_azure, "~> 0.1.0"}]
+    [{:s2_azure, "~> 0.1.0"}]
   end
   ```
 
-2. Ensure `ex_azure` is started before your application:
+2. Ensure `s2_azure` is started before your application:
 
   ```elixir
   def application do
-    [applications: [:ex_azure]]
+    [applications: [:s2_azure]]
   end
   ```
 
-3. By default, ExAzure using the following configuration:
+3. By default, S2Azure using the following configuration:
 
   ```elixir
-  config :ex_azure,
+  config :s2_azure,
       account:    System.get_env("AZURE_ACCOUNT"),
       access_key: System.get_env("AZURE_ACCESS_KEY")
   ```
 
 ## Usage
 
-For now, the ExAzure is a simple wrapper to make the calls to the `erlazure`.
-This way, you can just use `ExAzure.request/3` or `ExAzure.request!/3`  to make the calls.
+For now, the S2Azure is a simple wrapper to make the calls to the `erlazure`.
+This way, you can just use `S2Azure.request/3` or `S2Azure.request!/3`  to make the calls.
 
 Access ["Implemented API functions"](https://github.com/dkataskin/erlazure#implemented-api-functions) in `:erlazure` to all implemented functions.
 
@@ -39,7 +39,7 @@ examples:
 
 ```elixir
 # get a list of containers
-ExAzure.request(:list_containers)
+S2Azure.request(:list_containers)
 {:ok,
  %{body: [{:blob_container, 'uploads', [],
      [last_modified: 'Tue, 05 Jul 2016 17:15:12 GMT',
@@ -47,7 +47,7 @@ ExAzure.request(:list_containers)
       lease_state: :available], []}], headers: [next_marker: []]}}
 
 # get a list of blobs in "uploads" container
-ExAzure.request(:list_blobs, ["uploads"])
+S2Azure.request(:list_blobs, ["uploads"])
 {:ok, %{body: [], headers: [next_marker: []]}}
 ```
 
@@ -55,13 +55,13 @@ example of errors:
 
 ```elixir
 # no matched function
-ExAzure.request(:list_blobs)
+S2Azure.request(:list_blobs)
 {:error,
  %UndefinedFunctionError{arity: 1, function: :list_blobs, module: :erlazure,
   reason: nil}}
 
 # raised error using request!/3
-ExAzure.request!(:list_blobs)
+S2Azure.request!(:list_blobs)
 ** (UndefinedFunctionError) function :erlazure.list_blobs/1 is undefined or private. Did you mean one of:
 
       * list_blobs/2
@@ -69,7 +69,7 @@ ExAzure.request!(:list_blobs)
       * list_blobs/4
 
     (erlazure) :erlazure.list_blobs(#PID<0.134.0>)
-    (ex_azure) lib/ex_azure.ex:43: ExAzure.do_request/3
+    (s2_azure) lib/s2_azure.ex:43: S2Azure.do_request/3
 ```
 
 ## Test
@@ -92,7 +92,7 @@ ExAzure.request!(:list_blobs)
 
 # Contributing
 
-1. Fork it ( https://github.com/azukiapp/ex_azure/fork )
+1. Fork it ( https://github.com/azukiapp/s2_azure/fork )
 2. Create your feature branch (git checkout -b feature/new_feature_name)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin feature/new_feature_name)
@@ -106,9 +106,9 @@ ExAzure.request!(:list_blobs)
 
   ```elixir
   # use
-  ExAzure.Blobs.list("uploads")
+  S2Azure.Blobs.list("uploads")
   # instead of
-  ExAzure.request(:list_blobs, ["uploads"])
+  S2Azure.request(:list_blobs, ["uploads"])
   ```
 - [ ] Add CI
 s

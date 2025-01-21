@@ -1,16 +1,16 @@
-defmodule ExAzure do
+defmodule S2Azure do
   @moduledoc File.read!("#{__DIR__}/../README.md")
   use Application
 
-  alias ExAzure.{
+  alias S2Azure.{
     Server,
     Utils,
   }
 
   def defaults(config) do
     config
-    |> Dict.put_new(:account   , Application.get_env(:ex_azure, :account   ))
-    |> Dict.put_new(:access_key, Application.get_env(:ex_azure, :access_key))
+    |> Dict.put_new(:account   , Application.get_env(:s2_azure, :account   ))
+    |> Dict.put_new(:access_key, Application.get_env(:s2_azure, :access_key))
   end
 
   def config do
@@ -61,12 +61,12 @@ defmodule ExAzure do
     # Define workers and child supervisors to be supervised
     children = [
       # supervisor(:erlazure_sup, []),
-      supervisor(ExAzure.Server, []),
+      supervisor(S2Azure.Server, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: ExAzure.Supervisor]
+    opts = [strategy: :one_for_one, name: S2Azure.Supervisor]
     Supervisor.start_link(children, opts)
   end
 

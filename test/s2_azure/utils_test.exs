@@ -1,4 +1,4 @@
-defmodule ExAzure.UtilsTest do
+defmodule S2Azure.UtilsTest do
   use ExUnit.Case
 
   test "normalize arguments to list" do
@@ -12,7 +12,7 @@ defmodule ExAzure.UtilsTest do
         ]
       ]
 
-    assert ExAzure.Utils.normalize_to_charlist(args) == [
+    assert S2Azure.Utils.normalize_to_charlist(args) == [
         'uploads',
         'arctest/uploads/profile.jpg',
         <<255, 216, 255, 224, 0, 16, 74, 70, 73, 70, 0, 1, 1, 0, 0, 1, 0>>,

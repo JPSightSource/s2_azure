@@ -1,11 +1,11 @@
-defmodule ExAzure.Mixfile do
+defmodule S2Azure.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app:             :ex_azure,
+      app:             :s2_azure,
       version:         "0.1.1",
-      elixir:          "~> 1.2 or ~> 1.3",
+      elixir:          "~> 1.18 ",
       description:     "Azure wrapper for Elixir using :erlazure",
       package:         package(),
       build_embedded:  Mix.env == :prod,
@@ -16,7 +16,7 @@ defmodule ExAzure.Mixfile do
 
   def application do
     [applications: [:erlazure],
-     mod: {ExAzure, []}]
+     mod: {S2Azure, []}]
   end
 
   defp deps do
@@ -33,8 +33,8 @@ defmodule ExAzure.Mixfile do
       maintainers: ["Gullit Miranda <gullitmiranda@gmail.com>"],
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/gullitmiranda/ex_azure",
-        "Docs"   => "https://hexdocs.pm/ex_azure",
+        "GitHub" => "https://github.com/gullitmiranda/s2_azure",
+        "Docs"   => "https://hexdocs.pm/s2_azure",
       }
     ]
   end

@@ -1,4 +1,4 @@
-defmodule ExAzure.Server do
+defmodule S2Azure.Server do
   use GenServer
 
   def start_link(config \\ []) do
@@ -6,7 +6,7 @@ defmodule ExAzure.Server do
   end
 
   def init(config \\ []) do
-    config = ExAzure.defaults(config)
+    config = S2Azure.defaults(config)
 
     account    = to_charlist(config[:account])
     access_key = to_charlist(config[:access_key])
